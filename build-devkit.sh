@@ -173,7 +173,7 @@ fi
 patchdir=$(pwd)/$basedir/patches
 scriptdir=$(pwd)/$basedir/scripts
 
-archives="binutils-${BINUTILS_VER}.tar.xz gcc-${GCC_VER}.tar.xz newlib-${NEWLIB_VER}.tar.gz"
+archives="https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_VER}.tar.xz https://ftp.gnu.org/gnu/gcc/gcc-${GCC_VER}/gcc-${GCC_VER}.tar.xz ftp://sourceware.org/pub/newlib/newlib-${NEWLIB_VER}.tar.gz"
 
 if [ $VERSION -eq 2 ]; then
 	archives="binutils-${MN_BINUTILS_VER}.tar.bz2 $archives"
@@ -181,15 +181,15 @@ fi
 
 if [ "$BUILD_DKPRO_SKIP_CRTLS" != "1" ]; then
 	if [ $VERSION -eq 1 ]; then
-		archives="devkitarm-rules-$DKARM_RULES_VER.tar.gz devkitarm-crtls-$DKARM_CRTLS_VER.tar.gz $archives"
+		archives="https://wii.leseratte10.de/devkitPro/devkitARM/devkitarm-rules/devkitarm-rules-$DKARM_RULES_VER.tar.gz https://wii.leseratte10.de/devkitPro/devkitARM/devkitarm-rules/devkitarm-crtls-$DKARM_CRTLS_VER.tar.gz $archives"
 	fi
 
 	if [ $VERSION -eq 2 ]; then
-		archives="devkitppc-rules-$DKPPC_RULES_VER.tar.gz $archives"
+		archives="https://wii.leseratte10.de/devkitPro/devkitPPC/devkitppc-rules/devkitppc-rules-$DKPPC_RULES_VER.tar.gz $archives"
 	fi
 
 	if [ $VERSION -eq 3 ]; then
-		archives="devkita64-rules-$DKA64_RULES_VER.tar.gz $archives"
+		archives="https://wii.leseratte10.de/devkitPro/devkitA64/devkita64-rules/devkita64-rules-$DKA64_RULES_VER.tar.gz $archives"
 	fi
 fi
 
@@ -204,7 +204,7 @@ for archive in $archives
 do
 	echo $archive
 	if [ ! -f $archive ]; then
-		$FETCH https://downloads.devkitpro.org/$archive || { echo "Error: Failed to download $archive"; exit 1; }
+		$FETCH $archive || { echo "Error: Failed to download $archive"; exit 1; }
 	fi
 done
 
