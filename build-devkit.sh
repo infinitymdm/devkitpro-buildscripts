@@ -126,7 +126,7 @@ fi
 #---------------------------------------------------------------------------------
 # Add installed devkit to the path, adjusting path on minsys
 #---------------------------------------------------------------------------------
-export TOOLPATH=$(echo $INSTALLDIR | sed -e 's/^\([a-zA-Z]\):/\/\1/')
+TOOLPATH=$(echo $INSTALLDIR | sed -e 's/^\([a-zA-Z]\):/\/\1/')
 export PATH=$TOOLPATH/$package/bin:$PATH
 
 if [ "$BUILD_DKPRO_AUTOMATED" != "1" ] ; then
