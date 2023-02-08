@@ -176,7 +176,7 @@ scriptdir=$(pwd)/$basedir/scripts
 archives="https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_VER}.tar.xz https://ftp.gnu.org/gnu/gcc/gcc-${GCC_VER}/gcc-${GCC_VER}.tar.xz ftp://sourceware.org/pub/newlib/newlib-${NEWLIB_VER}.tar.gz"
 
 if [ $VERSION -eq 2 ]; then
-	archives="binutils-${MN_BINUTILS_VER}.tar.bz2 $archives"
+	archives="https://ftp.gnu.org/gnu/binutils/binutils-${MN_BINUTILS_VER}.tar.bz2 $archives"
 fi
 
 if [ "$BUILD_DKPRO_SKIP_CRTLS" != "1" ]; then
