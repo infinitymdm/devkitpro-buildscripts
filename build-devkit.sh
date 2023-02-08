@@ -211,8 +211,7 @@ cd $BUILDDIR
 extract_and_patch binutils $BINUTILS_VER xz
 extract_and_patch gcc $GCC_VER xz
 extract_and_patch newlib $NEWLIB_VER gz
-
-if [ $VERSION -eq 2 ]; then extract_and_patch binutils $MN_BINUTILS_VER bz2; fi
+extract_and_patch binutils $BINUTILS_VER xz
 
 #---------------------------------------------------------------------------------
 # Build and install devkit components
