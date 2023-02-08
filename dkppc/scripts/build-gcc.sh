@@ -40,15 +40,12 @@ cd $BUILDDIR
 # build and install mn10200 binutils
 #---------------------------------------------------------------------------------
 
-# Use modern config.sub for aarch64 host
-cp binutils-$BINUTILS_VER/config.sub binutils-$MN_BINUTILS_VER/config.sub
-
 mkdir -p mn10200/binutils
 cd mn10200/binutils
 
 if [ ! -f configured-binutils ]
 then
-	../../binutils-$MN_BINUTILS_VER/configure \
+	../../binutils-$BINUTILS_VER/configure \
 	--prefix=$prefix --target=mn10200 --disable-nls --disable-debug \
 	--disable-multilib \
 	--disable-werror $CROSS_PARAMS \
