@@ -13,5 +13,4 @@ cd $BUILDDIR
 
 tar -xvf $SRCDIR/devkitppc-rules-$DKPPC_RULES_VER.tar.gz
 cd devkitppc-rules-$DKPPC_RULES_VER
-DESTDIR=$DEVKITPPC
-make install
+make install DESTDIR=$DEVKITPPC
